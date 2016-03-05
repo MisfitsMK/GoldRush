@@ -1,0 +1,46 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+.mainWindow {
+    margin:0;
+    padding:0;
+}
+
+h1 {
+  font-size: 2.2em;
+  color: #000;
+  margin-bottom: 0;
+}
+
+h2 {
+  font-size: 2em;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+nav a {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #A45209;
+  border-radius: 4px;
+  color: #fff;
+}
+
+nav a:visited, a:link {
+  color: #fff;
+}
+
+nav a:hover {
+  color: #111;
+  background-color: #A45209;
+}
+
+nav a.router-link-active {
+  color: #000;
+  background-color: #FFCC33;
+  border:1px black solid;
+}

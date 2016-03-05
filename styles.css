@@ -1,0 +1,77 @@
+*{
+margin:0;
+padding:0;
+}
+
+body { 
+  margin: 2em; 
+}
+
+body, input[text], button { 
+  color: #000; 
+  font-family: Cambria, Georgia; 
+}
+
+h2 { 
+  color: #111;
+  font-family: Arial, Helvetica, sans-serif;   
+  font-weight: lighter;
+}
+
+button {
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+}
+
+button:hover {
+  background-color: #cfd8dc;
+}
+
+button:disabled {
+  background-color: #eee;
+  color: #aaa; 
+  cursor: auto;
+}
+
+/* everywhere else */
+* { 
+  font-family: Arial, Helvetica, sans-serif; 
+}
+
+
+
+
+/*AT THE BOTTOM HERE I AM INCLUDING A HACKY CLEARFIX CALLED THE MICROCLEARFIX
+    You can learn all about it here: 'http://nicolasgallagher.com/micro-clearfix-hack/'
+*/
+/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}

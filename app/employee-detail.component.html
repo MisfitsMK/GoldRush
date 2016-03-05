@@ -1,0 +1,18 @@
+<div class="container">
+    <div *ngIf="employee" id="detail-window">
+        <h2>{{employee.name}} details!</h2>
+        <div>
+            <label>id: </label>{{employee.id}}
+        </div>
+        <div>
+            <label>name: </label>{{employee.name}}
+        </div>
+        <div>
+            <br>
+            <h3>Change Name: </h3><input [(ngModel)]="employee.name" placeholder="name">
+        </div>
+        <div>
+            <button (click)="goBack()">Back</button>
+        </div>
+    </div>
+</div>

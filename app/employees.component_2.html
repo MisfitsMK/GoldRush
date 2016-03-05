@@ -1,0 +1,13 @@
+<div class="container">
+    <h1>{{title}}</h1>
+    <div id="shop-items-list">
+        <h2>General Store:</h2>
+        <ul class="shopItems">
+            <li *ngFor="#shopItem of shopItems" [class.selected]="shopItem === selectedShopItem" (click)="onSelect(shopItem)">
+                <span class="badge"> Cost: {{shopItem.cost}}</span> <span class="itemName">{{shopItem.name}}</span>
+                <br><span class="text">{{shopItem.description}}</span>
+            </li>
+        </ul>
+    </div>
+    <my-shop></my-shop>
+</div>
