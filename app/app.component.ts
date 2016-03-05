@@ -64,12 +64,22 @@ export class AppComponent implements OnInit {
 
     ngOnInit() {
         this.getEmployees();
+        this.getPlayer();
     }
 
-    constructor(private _employeeService: EmployeeService, private _shopItemService: ShopItemService) { }
+    constructor(
+        private _employeeService: EmployeeService,
+        private _shopItemService: ShopItemService
+    ) { }
+
+    getPlayer() {
+        //You Go 
+    }
+
     getEmployees() {
         this._employeeService.getEmployees().then(employees => this.employees = employees);
     }
+
     getShopItems() {
         this._shopItemService.getShopItems().then(shopItems => this.shopItems = shopItems);
     }
@@ -77,5 +87,7 @@ export class AppComponent implements OnInit {
     onSelect(employee: Employee) {
         this.selectedEmployee = employee;
     }
+
+
 }
 

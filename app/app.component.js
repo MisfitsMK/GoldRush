@@ -47,6 +47,10 @@ System.register(['angular2/core', 'angular2/router', './dashboard.component', '.
                 }
                 AppComponent.prototype.ngOnInit = function () {
                     this.getEmployees();
+                    this.getPlayer();
+                };
+                AppComponent.prototype.getPlayer = function () {
+                    //You Go 
                 };
                 AppComponent.prototype.getEmployees = function () {
                     var _this = this;

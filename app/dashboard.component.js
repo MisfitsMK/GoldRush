@@ -33,6 +33,8 @@ System.register(['angular2/core', 'angular2/router', './employee.service', './sh
                     this._employeeService = _employeeService;
                     this._shopItemService = _shopItemService;
                     this.employees = [];
+                    this.gold = 0;
+                    this.clicks = 0;
                 }
                 DashboardComponent.prototype.ngOnInit = function () {
                     var _this = this;
@@ -42,6 +44,10 @@ System.register(['angular2/core', 'angular2/router', './employee.service', './sh
                 DashboardComponent.prototype.gotoDetail = function (employee) {
                     var link = ['EmployeeDetail', { id: employee.id }];
                     this._router.navigate(link);
+                };
+                DashboardComponent.prototype.panGold = function () {
+                    this.gold += Math.random() * 1 + .1;
+                    this.clicks += 1;
                 };
                 DashboardComponent = __decorate([
                     core_1.Component({
