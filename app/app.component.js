@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './dashboard.component', './employee.service', './employees.component', './employee-detail.component', './shop-item.service', './shop.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', 'rxjs/Rx', './dashboard.component', './player.service', './employee.service', './employees.component', './employee-detail.component', './shop-item.service', './shop.component', './about.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', './dashboard.component', '.
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, dashboard_component_1, employee_service_1, employees_component_1, employee_detail_component_1, shop_item_service_1, shop_component_1;
+    var core_1, router_1, Rx_1, dashboard_component_1, player_service_1, employee_service_1, employees_component_1, employee_detail_component_1, shop_item_service_1, shop_component_1, about_component_1;
     var AppComponent;
     return {
         setters:[
@@ -20,8 +20,14 @@ System.register(['angular2/core', 'angular2/router', './dashboard.component', '.
             function (router_1_1) {
                 router_1 = router_1_1;
             },
+            function (Rx_1_1) {
+                Rx_1 = Rx_1_1;
+            },
             function (dashboard_component_1_1) {
                 dashboard_component_1 = dashboard_component_1_1;
+            },
+            function (player_service_1_1) {
+                player_service_1 = player_service_1_1;
             },
             function (employee_service_1_1) {
                 employee_service_1 = employee_service_1_1;
@@ -37,20 +43,39 @@ System.register(['angular2/core', 'angular2/router', './dashboard.component', '.
             },
             function (shop_component_1_1) {
                 shop_component_1 = shop_component_1_1;
+            },
+            function (about_component_1_1) {
+                about_component_1 = about_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
-                function AppComponent(_employeeService, _shopItemService) {
+                function AppComponent(_playerService, _employeeService, _shopItemService) {
+                    this._playerService = _playerService;
                     this._employeeService = _employeeService;
                     this._shopItemService = _shopItemService;
                     this.title = 'Gold Rush';
+                    this.ticks = 0;
+                    this.player = {
+                        "gold": 0, "clicks": 0
+                    };
+                    //BONUSES
+                    this.goldBonus = 1;
                 }
                 AppComponent.prototype.ngOnInit = function () {
+                    var _this = this;
                     this.getEmployees();
                     this.getPlayer();
+                    this.player.gold = 0;
+                    this.player.clicks = 0;
+                    var timer = Rx_1.Observable.timer(2000, 1000); //starts after 2 seconds, ticks every second
+                    timer.subscribe(function (t) { return _this.ticks = t; });
+                };
+                AppComponent.prototype.tick = function () {
+                    console.log("TICK FUNCTION CALLED");
                 };
                 AppComponent.prototype.getPlayer = function () {
-                    //You Go 
+                    var _this = this;
+                    this._playerService.getPlayer().then(function (player) { return _this.player = player; });
                 };
                 AppComponent.prototype.getEmployees = function () {
                     var _this = this;
@@ -62,6 +87,10 @@ System.register(['angular2/core', 'angular2/router', './dashboard.component', '.
                 };
                 AppComponent.prototype.onSelect = function (employee) {
                     this.selectedEmployee = employee;
+                };
+                AppComponent.prototype.panGold = function () {
+                    this.player.gold += 1 + this.goldBonus;
+                    this.player.clicks += 1;
                 };
                 AppComponent = __decorate([
                     router_1.RouteConfig([
@@ -85,6 +114,11 @@ System.register(['angular2/core', 'angular2/router', './dashboard.component', '.
                             path: '/employee-detail/:id',
                             name: 'EmployeeDetail',
                             component: employee_detail_component_1.EmployeeDetailComponent
+                        },
+                        {
+                            path: '/about',
+                            name: 'About',
+                            component: about_component_1.AboutComponent
                         }
                     ]),
                     core_1.Component({
@@ -95,15 +129,18 @@ System.register(['angular2/core', 'angular2/router', './dashboard.component', '.
                             router_1.ROUTER_DIRECTIVES,
                             employees_component_1.EmployeesComponent,
                             employee_detail_component_1.EmployeeDetailComponent,
-                            shop_component_1.ShopComponent
+                            shop_component_1.ShopComponent,
+                            about_component_1.AboutComponent,
+                            dashboard_component_1.DashboardComponent
                         ],
                         providers: [
                             router_1.ROUTER_PROVIDERS,
+                            player_service_1.PlayerService,
                             employee_service_1.EmployeeService,
                             shop_item_service_1.ShopItemService
                         ]
                     }), 
-                    __metadata('design:paramtypes', [employee_service_1.EmployeeService, shop_item_service_1.ShopItemService])
+                    __metadata('design:paramtypes', [player_service_1.PlayerService, employee_service_1.EmployeeService, shop_item_service_1.ShopItemService])
                 ], AppComponent);
                 return AppComponent;
             }());

@@ -1,24 +1,5 @@
 <div class="container">
-<!-- HIDING THIS DIV FOR A LITTLE BIT UNTIL I HAVE A PLAN FOR IT
-    <div class="grid grid-pad">
-        <div *ngFor="#employee of employees" (click)="gotoDetail(employee)" class="col-1-4 module">
-            <h4>{{employee.name}}</h4>
-        </div>
-    </div>
--->
-    <div class="grid grid-pad">
-        <div class="col-1-2">
-            <h4><span id="goldBadge"> Gold Count: </span><span id="goldCount">{{gold | number:'1.0-1'}}</span></h4>
-        </div>
-        <div class="col-1-2">
-            <h4><span id="clicksBadge">Clicks: </span><span id="clicksCount">{{clicks}}</span></h4>
-        </div>
-    </div>
-    <div class="cf"></div>
     <div class="playField">
         <h2>At the Land Claim...</h2>
-        <div class="buttonContainer">
-            <button class="button" (click)="panGold()">Pan for Gold</button>
-        </div>
     </div>
 </div>

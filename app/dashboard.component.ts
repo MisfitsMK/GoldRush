@@ -1,41 +1,30 @@
 import { Component, OnInit } from 'angular2/core';
-import { Router } from 'angular2/router';
-import { Employee } from './employee';
-import { EmployeeService } from './employee.service';
-import { ShopItem } from './shop-item'; 
-import { ShopItemService } from './shop-item.service';
 import { AppComponent } from './app.component';
+import { Player } from './player';
+import { PlayerService } from './player.service';
 
 @Component({
     selector: 'my-dashboard',
     templateUrl: 'app/dashboard.component.html',
-    styleUrls: ['app/dashboard.component.css']
+    styleUrls: ['app/dashboard.component.css'],
+    inputs: []
 })
-export class DashboardComponent implements OnInit {
-    employees: Employee[] = [];
-    gold: number = 0;
-    clicks: number = 0;
-
-    constructor(
-        private _router: Router,
-        private _employeeService: EmployeeService,
-        private _shopItemService: ShopItemService
-    ) { }
+export class DashboardComponent implements OnInit{
+    player: Player;
 
     ngOnInit() {
-        this._employeeService.getEmployees()
-            .then(employees => this.employees = employees.slice(0, 3));
+        this.getPlayer();
     }
 
-    gotoDetail(employee: Employee) {
-        let link = ['EmployeeDetail', { id: employee.id }];
-        this._router.navigate(link);
+    constructor(
+        private _playerService: PlayerService
+    ) { }
+
+    getPlayer() {
+        this._playerService.getPlayer().then(player => this.player = player);
     }
 
-    public panGold() {
-        this.gold += Math.random() * 1 + .1;
-        this.clicks += 1;
+    panGold() {
+        AppComponent.panGold();
     }
-
-
 }

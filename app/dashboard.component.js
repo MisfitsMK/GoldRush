@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './employee.service', './shop-item.service'], function(exports_1, context_1) {
+System.register(['angular2/core', './app.component', './player.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,52 +10,42 @@ System.register(['angular2/core', 'angular2/router', './employee.service', './sh
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, employee_service_1, shop_item_service_1;
+    var core_1, app_component_1, player_service_1;
     var DashboardComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (router_1_1) {
-                router_1 = router_1_1;
+            function (app_component_1_1) {
+                app_component_1 = app_component_1_1;
             },
-            function (employee_service_1_1) {
-                employee_service_1 = employee_service_1_1;
-            },
-            function (shop_item_service_1_1) {
-                shop_item_service_1 = shop_item_service_1_1;
+            function (player_service_1_1) {
+                player_service_1 = player_service_1_1;
             }],
         execute: function() {
             DashboardComponent = (function () {
-                function DashboardComponent(_router, _employeeService, _shopItemService) {
-                    this._router = _router;
-                    this._employeeService = _employeeService;
-                    this._shopItemService = _shopItemService;
-                    this.employees = [];
-                    this.gold = 0;
-                    this.clicks = 0;
+                function DashboardComponent(_playerService) {
+                    this._playerService = _playerService;
                 }
                 DashboardComponent.prototype.ngOnInit = function () {
-                    var _this = this;
-                    this._employeeService.getEmployees()
-                        .then(function (employees) { return _this.employees = employees.slice(0, 3); });
+                    this.getPlayer();
                 };
-                DashboardComponent.prototype.gotoDetail = function (employee) {
-                    var link = ['EmployeeDetail', { id: employee.id }];
-                    this._router.navigate(link);
+                DashboardComponent.prototype.getPlayer = function () {
+                    var _this = this;
+                    this._playerService.getPlayer().then(function (player) { return _this.player = player; });
                 };
                 DashboardComponent.prototype.panGold = function () {
-                    this.gold += Math.random() * 1 + .1;
-                    this.clicks += 1;
+                    app_component_1.AppComponent.panGold();
                 };
                 DashboardComponent = __decorate([
                     core_1.Component({
                         selector: 'my-dashboard',
                         templateUrl: 'app/dashboard.component.html',
-                        styleUrls: ['app/dashboard.component.css']
+                        styleUrls: ['app/dashboard.component.css'],
+                        inputs: []
                     }), 
-                    __metadata('design:paramtypes', [router_1.Router, employee_service_1.EmployeeService, shop_item_service_1.ShopItemService])
+                    __metadata('design:paramtypes', [player_service_1.PlayerService])
                 ], DashboardComponent);
                 return DashboardComponent;
             }());

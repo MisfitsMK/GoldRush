@@ -19,6 +19,34 @@ h2 {
   padding-top: 0;
 }
 
+.col-1-3 {
+  width: 33%;
+  position:relative;
+  float:left;
+}
+
+.col-2-3 {
+    width: 65%;
+	position:relative;
+	float:right;
+}
+
+#goldBadge {
+    color:#eee;
+    font-weight:700;
+}
+#goldCount {
+    color:gold;
+}
+
+#clicksBadge {
+    color:#eee;
+    font-weight:700;
+}
+#clicksCount {
+    color:lightgoldenrodyellow;
+}
+
 nav a {
   padding: 5px 10px;
   text-decoration: none;
@@ -43,3 +71,33 @@ nav a.router-link-active {
   background-color: #FFCC33;
   border:1px black solid;
 }
+
+
+.buttonContainer {
+    margin: 8px;
+    padding: 8px;
+	float:right;
+	max-width:40%;
+}
+
+.button {
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #FFCC33;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #533419;
+}
+
+.button:hover {background-color: #F0C030}
+
+.button:active {
+  background-color: #E3B62D;
+  box-shadow: 0 5px #FFCC33;
+  transform: translateY(4px);
+}
+

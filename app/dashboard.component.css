@@ -23,34 +23,6 @@ h4 {
   padding-right: 0;
 }
 
-.grid {
-  margin: 0;
-}
-
-.col-1-4 {
-  width: 25%;
-}
-
-.col-1-2 {
-    width: 50%;
-}
-
-#goldBadge {
-    color:#eee;
-    font-weight:700;
-}
-#goldCount {
-    color:gold;
-}
-
-#clicksBadge {
-    color:#eee;
-    font-weight:700;
-}
-#clicksCount {
-    color:lightgoldenrodyellow;
-}
-
 .module {
     padding: 20px;
     text-align: center;
@@ -99,7 +71,7 @@ h4 {
     padding:14px;
     background-color:#533419;
     width: 95%;
-    min-height:600px;
+    height:400px;
 }
 
 .playField h2 {
