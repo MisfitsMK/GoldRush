@@ -59,7 +59,7 @@ System.register(['angular2/core', 'angular2/router', 'rxjs/Rx', './dashboard.com
                         "gold": 0, "clicks": 0
                     };
                     //BONUSES
-                    this.goldBonus = 1;
+                    this.goldBonus = 0;
                 }
                 AppComponent.prototype.ngOnInit = function () {
                     var _this = this;

@@ -25,6 +25,7 @@ export class DashboardComponent implements OnInit{
     }
 
     panGold() {
-        AppComponent.panGold();
+        this.player.gold += 1;
+        this.player.clicks += 1;   
     }
 }

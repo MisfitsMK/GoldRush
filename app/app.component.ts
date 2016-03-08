@@ -74,7 +74,7 @@ export class AppComponent implements OnInit {
     };
 
     //BONUSES
-    goldBonus: number = 1;
+    goldBonus: number = 0;
 
     employees: Employee[];
     shopItems: ShopItem[];

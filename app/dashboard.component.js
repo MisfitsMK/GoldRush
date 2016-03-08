@@ -1,4 +1,4 @@
-System.register(['angular2/core', './app.component', './player.service'], function(exports_1, context_1) {
+System.register(['angular2/core', './player.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,12 @@ System.register(['angular2/core', './app.component', './player.service'], functi
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, app_component_1, player_service_1;
+    var core_1, player_service_1;
     var DashboardComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (app_component_1_1) {
-                app_component_1 = app_component_1_1;
             },
             function (player_service_1_1) {
                 player_service_1 = player_service_1_1;
@@ -36,7 +33,8 @@ System.register(['angular2/core', './app.component', './player.service'], functi
                     this._playerService.getPlayer().then(function (player) { return _this.player = player; });
                 };
                 DashboardComponent.prototype.panGold = function () {
-                    app_component_1.AppComponent.panGold();
+                    this.player.gold += 1;
+                    this.player.clicks += 1;
                 };
                 DashboardComponent = __decorate([
                     core_1.Component({

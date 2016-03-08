@@ -81,6 +81,7 @@ h4 {
 .buttonContainer {
     margin: 8px;
     padding: 8px;
+	min-width:100%;
 }
 
 .button {
@@ -96,11 +97,16 @@ h4 {
   box-shadow: 0 9px #533419;
 }
 
+.button:focus {outline:none;}
+.button::-moz-focus-inner {border:0;}
+
 .button:hover {background-color: #F0C030}
 
 .button:active {
   background-color: #E3B62D;
   box-shadow: 0 5px #FFCC33;
   transform: translateY(4px);
+  border: none;
+  outline:none;
 }
 
