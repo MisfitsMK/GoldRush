@@ -3,10 +3,17 @@
     padding: 0;
 }
 
+*, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing:border-box;
+}
+
 .container {
-    margin:8px;
-    padding:8px;
-    border: 2px black solid;
+    margin:0px;
+    padding:8px 0px;
+    border-top: 2px black solid;
+    border-bottom: 2px black solid;
 }
 
 h1 {
@@ -25,6 +32,12 @@ h1 {
   margin: 0;
 }
 
+.grid:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
 .grid-pad {
   padding: 10px 0;
 }
@@ -37,57 +50,83 @@ h1 {
     width: 50%;
 }
 
-.shopItems {
+[class*='col-']{
+    padding-right: 20px;
+}
+
+[class*='col-']:last-of-type {
+    padding:right: 0;
+}
+
+.shopItemsList {
     margin: 0 0 2em 0;
     list-style-type: none;
     padding: .3em;
 }
 
-.shopItems li {
+
+.shopItemsList ul {
+    margin:0 auto;
+    text-align: center;
+    column-count:4;
+}
+
+.shopItemsList li {
+    display:inline-block;
+    vertical-align:top;
     cursor: pointer;
     position: relative;
     left: 0;
     background-color: #FFCC33;
     margin: .5em;
     padding: .3em 0;
-    height: 3.6em;
     border-radius: 4px;
+    border: 2px black solid;
+    width:200px;
+    height: 300px;
 }
 
-.shopItems li.selected:hover {
+.shopItemsList li.selected:hover {
     background-color: #DDBB22 !important;
     color: white;
 }
 
-.shopItems li:hover {
+.shopItemsList li:hover {
     color: #607D8B;
     background-color: #DDBB22;
     left: .1em;
 }
 
-.shopItems .text {
+
+.shopItemsList .text {
     position: relative;
     top: 3px;
     left: 10px;
     font-style:italic;
 }
 
-.shopItems .badge {
+.shopItemsList .badge {
     display: inline-block;
-    font-size: small;
-    color: white;
+    font-size:1.1em;
+    color: gold;
     padding: 0.8em 0.7em 0.8em 0.7em;
     background-color: #A45209;
     line-height: 1em;
     position: relative;
     left: -1px;
     top: -4px;
-    //height: 1.8em;
-    margin-right: .8em;
     border-radius: 2px 0 0 2px;
 }
 
-.shopItems .itemName {
+.itemName {
+    text-align: center;
     font-size:1.2em;
-    font-style:normal;
+}
+
+.shopItemsList .shopThumb {
+    width:190px;
+    height:auto;
+    margin-top:-20px;
+    margin-bottom:-10px;
+    text-align:center;
 }

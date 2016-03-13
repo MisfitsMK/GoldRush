@@ -1,9 +1,10 @@
 <div class="container">
     <h1>{{title}}:</h1>
     <div id="shop-items-list">
-        <ul class="shopItems">
+        <ul class="shopItemsList">
             <li *ngFor="#shopItem of shopItems" [class.selected]="shopItem === selectedShopItem" (click)="onSelect(shopItem)">
-                <span class="badge"> Cost: {{shopItem.cost}}</span> <span class="itemName">{{shopItem.name}}</span>
+                <span class="badge"> Cost: {{shopItem.cost}}</span> <img class="shopThumb" src="app/img/shop/{{shopItem.id}}.png"/><br />
+                <span class="itemName">{{shopItem.name}}</span> 
                 <br><span class="text">{{shopItem.description}}</span>
             </li>
         </ul>

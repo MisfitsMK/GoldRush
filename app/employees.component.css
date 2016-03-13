@@ -3,10 +3,17 @@
     padding: 0;
 }
 
+*, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing:border-box;
+}
+
 .container {
-    margin:8px;
-    padding:8px;
-    border: 2px black solid;
+    margin:0px;
+    padding:8px 0px;
+    border-top: 2px black solid;
+    border-bottom: 2px black solid;
     text-align:center;
 	height: 400px;
 }
@@ -36,8 +43,8 @@ h1 {
     left: 0;
     background-color: #FFCC33;
     margin: .5em;
-    padding: .3em 0;
-    height: 1.6em;
+    padding: .3em 0px;
+    height: 2.6em;
     border-radius: 4px;
 }
 
@@ -67,7 +74,6 @@ h1 {
     position: relative;
     left: -1px;
     top: -4px;
-    height: 1.8em;
     margin-right: .8em;
     border-radius: 2px 0 0 2px;
 }

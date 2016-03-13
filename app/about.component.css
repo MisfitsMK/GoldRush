@@ -1,13 +1,19 @@
-*{
-    margin:0;
-    border:0;
+* {
+    margin: 0;
+    padding: 0;
 }
 
+*, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing:border-box;
+}
 
 .container {
-    margin:8px;
-    padding:8px;
-    border: 2px black solid;
+    margin:0px;
+    padding:8px 0px;
+    border-top: 2px black solid;
+    border-bottom: 2px black solid;
     text-align:center;
     color:#eee;
 }
